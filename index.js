@@ -86,17 +86,54 @@ const titles = [
 
 //Array of authors and the book they wrote
 //"--- wrote --- in ---"
+books.forEach((books)=>console.log(books.authorFirst, books.authorLast, "wrote", books.name, "in", books.publishDate));
 
 //Sort books from oldest to most recent
+const age = books.sort((x,y) => x.publishDate- y.publishDate);
+age.forEach((books)=>console.log(books.name));
 
 //sort books alphabetically
+titles.sort();
+console.log(titles);
 
 //Find who wrote War and Peace
+const author = books.filter((books)=> books.name === "War and Peace");
+author.forEach((books)=> console.log(books.authorFirst, books.authorLast));
 
 //how many books were written before 1900?
+const before = books.filter((books)=>books.publishDate < 1900)
+console.log(before.length);
 
 //was there at least one book published within the last 100 years?
+//const recent = books.filter((books)=>books.publishDate>1923)
+//console.log(recent.length + " books were written within the last 100 years."); -> how to get the amount of books written 
+//within the last 100 years
+const recent = books.filter((books)=>books.publishDate>1923)
+const amt = recent.length
+function year(amt){
+  if (amt >= 1) {
+  console.log("Yes");
+  } else 
+  console.log("No");
+}
+year(amt);
 
 //was every book published within the last 100 years?
+const every = books.filter((books)=>books.publishDate>1923)
+const each = every.length
+function publishyear (each) {
+if (each === 10) {
+  console.log("Yes");
+}
+else 
+console.log("No");
+}
+publishyear(each);
 
 //print a list of books that "includes" the genre historical
+const hist = books.filter((books)=>books.genre.includes("historical"));
+hist.forEach((books)=>console.log(books.name));
+
+//books
+//.filter((books) => books.genre.includes("historical"))
+//.forEach((books) => console.log(books.name));
